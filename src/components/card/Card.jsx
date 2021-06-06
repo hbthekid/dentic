@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import './Card.css'
 import { MdLocalGroceryStore } from 'react-icons/md'
 import { useHistory } from 'react-router-dom';

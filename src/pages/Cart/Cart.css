@@ -12,7 +12,7 @@
 }
 
 .badge-store-cart{
-    background-color: teal;
+    background-color:#38c1ca;
     border-radius: 50px;
     color:white;
     display: inline-block;
@@ -41,23 +41,31 @@
 }
 
 .plus{
-    background-color: teal;
+    background-color: #38c1ca;
     border-radius: 100%;
     color:white;
     display: inline-block;
     padding: 5px 10px;
     cursor: pointer;
-    margin-right: 5px;
+}
+.plus:hover{
+    background-color: #33a4ace8;
+
 }
 .less{
-    background-color: teal;
+    background-color: #38c1ca;
     border-radius: 100%;
     color:white;
     display: inline-block;
     padding: 5px 10px;
     cursor: pointer;
-    margin-left: 10px;
 }
+
+.less:hover{
+    background-color: #33a4ace8;
+
+}
+
 .final-store{
     text-align: end;
     margin: 5px 20px;
@@ -71,11 +79,16 @@
 
 }
 .pay-button{
-    background-color: teal;
+    background-color: #CB463A;
     border-radius: 40px;
     color:white;
     display: inline-block;
     padding: 10px 80px;
+    cursor: pointer;
+}
+
+.pay-button:hover{
+    background-color: #d14033d0;
 }
 .actions-container{
     width: 50%;

@@ -33,9 +33,9 @@ function Product({ name, items, store }) {
             <h4 className="name">{name}</h4>
             <div className="actions-container">
                 <div className="quantity-container">
-                    <div className="plus">+</div>
+                <div className="less" onClick={handleClick}>-</div>
                     <div className="badge-number">{totalProduct.length}</div>
-                    <div className="less" onClick={handleClick}>-</div>
+                    <div className="plus">+</div>
                 </div>
                 <div className="delete-btn" onClick={deleteAll}>
                     <MdDelete className="delete-btn" size={20} />
