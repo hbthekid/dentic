@@ -17,7 +17,19 @@ function Product({ name, items, store }) {
             type: 'DELETE_ITEM',
             value: {
                 name: name,
+                price:items[0].price
             }
+        })
+    }
+    const addProduct = () => {
+        dispatch({
+            type: "ADD_CART",
+            value: {
+                name: items[0].name,
+                store: items[0].store,
+                price: items[0].price,
+                id: items[0].id
+            },
         })
     }
     const deleteAll = () => {
@@ -33,9 +45,9 @@ function Product({ name, items, store }) {
             <h4 className="name">{name}</h4>
             <div className="actions-container">
                 <div className="quantity-container">
-                <div className="less" onClick={handleClick}>-</div>
+                    <div className="less" onClick={handleClick}>-</div>
                     <div className="badge-number">{totalProduct.length}</div>
-                    <div className="plus">+</div>
+                    <div className="plus" onClick={addProduct}>+</div>
                 </div>
                 <div className="delete-btn" onClick={deleteAll}>
                     <MdDelete className="delete-btn" size={20} />

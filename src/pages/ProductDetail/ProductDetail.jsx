@@ -33,7 +33,7 @@ function ProductDetail({ location: { state } }) {
                                 <div className="badge-store">{state.store}</div>
                             </div>
                             <div className="details-bottom">
-                                <p className="details-display">{state['units-in-pack']}</p>
+                                <p className="details-display">{state.unitsInPack} Lata</p>
                                 <div className="details-price-container">
                                     <h4 className="details-price">${state.price}</h4>
                                 </div>

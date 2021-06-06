@@ -18,7 +18,6 @@ function App() {
           <Route exact path='/' component={Home} />
           <Route exact path='/product/:id' component={ProductDetail} />
           <Route exact path='/cart' component={Cart} />   
-          <Route path='*' component={NotFoundPage} />  
         </CartContextProvider>
       </Switch>
     </Router>
