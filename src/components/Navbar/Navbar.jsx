@@ -5,7 +5,7 @@ import { CartContext } from '../../context/CartContext';
 import './Navbar.css'
 
 function Navbar() {
-    const { state } = useContext(CartContext);
+    const { state:{products} } = useContext(CartContext);
     return (
         <nav className="navbar">
             <Link to="/" className="linksRouter"><h4 className="link">Tienda</h4></Link>
@@ -13,7 +13,7 @@ function Navbar() {
             <div className="cart-nav-icon">
                 <Link to="/cart" className="linksRouter"><div className="icon"><MdLocalGroceryStore size={30} />
                 </div></Link>
-                <div className="badge-nav-icon">{state.length}</div>
+                <div className="badge-nav-icon">{products.length}</div>
             </div>
         </nav>
     )

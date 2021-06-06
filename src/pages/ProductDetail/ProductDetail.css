@@ -80,6 +80,10 @@
     padding: 10px 20px;
 }
 
+.button-add:hover{
+    background-color: #d14033d0;
+}
+
 .description-title{
     min-width: 50%;
     display: flex;

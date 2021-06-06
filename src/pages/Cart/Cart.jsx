@@ -7,7 +7,7 @@ import './Cart.css'
 
 function Cart() {
     const { state, dispatch } = useContext(CartContext)
-    const group = _.groupBy(state, (e) => e.store)
+    const group = _.groupBy(state.products, (e) => e.store)
     const stores = Object.keys(group)
 
     return (
@@ -20,7 +20,7 @@ function Cart() {
                 ))}
                 <div className="cart-footer">
                     <h1>Total a Pagar</h1>
-                    <h1>$9999</h1>
+                    <h1>${state.total}</h1>
                     <div className="pay-button">Pagar</div>
                 </div>
             </section>

@@ -1,21 +1,22 @@
 import React, { createContext, useReducer } from "react";
 
 export const CartContext = createContext();
-const initialCartState = [];
+const initialCartState = {
+    total: 0,
+    products: []
+};
 
 const reducer = (state, action) => {
     switch (action.type) {
-        case "ADD_CART":
-            {
-                return [...state, { ...action.value }];
-            }
+        case "ADD_CART": {
+            return { total: state.total + action.value.price, products: [...state.products, { ...action.value }] }
+        }
         case "DELETE_ITEM": {
-            let idx = state.findIndex(p => p.name === action.value.name);
-            return state.splice(idx, 1)
+            let idx = state.products.findIndex(p => p.name === action.value.name);
+            return { total: state.total, products: state.products.splice(idx, 1) }
         }
         case "DELETE_ALL": {
-
-            return state.filter((e) => e.name !== action.value.name)
+            return { total: state.total, products: state.products.filter((e) => e.name !== action.value.name) }
         }
         default:
             return state;
@@ -30,13 +31,3 @@ export const CartContextProvider = (props) => {
         </CartContext.Provider>
     );
 };
-
-/*
-
-            console.log(state)
-            const index = state.findIndex(e => (e.name === action.value.name) && (e.store === action.value.store))
-            if (index > -1) {
-                state.splice(index, 1)
-                return [...state]
-            }
-*/

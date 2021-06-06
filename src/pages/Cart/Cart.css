@@ -85,3 +85,10 @@
 .name{
     width: 100%;
 }
+
+.delete-btn{
+    cursor: pointer;
+}
+.delete-btn:hover{
+    color:red;
+}

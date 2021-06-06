@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import _ from 'underscore'
 import Product from './Product'
 import '../../pages/Cart/Cart'
@@ -6,7 +6,7 @@ import '../../pages/Cart/Cart'
 function Store({ store, items }) {
     const products = _.groupBy(items, (e) => e.name);
     const [total, setTotal] = useState(0);
-    useEffect(()=> {
+    useEffect(() => {
         setTotal(items.length * items[0].price)
     }, [])
 

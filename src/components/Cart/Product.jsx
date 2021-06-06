@@ -6,12 +6,11 @@ import { CartContext } from '../../context/CartContext'
 function Product({ name, items, store }) {
     const { state, dispatch } = useContext(CartContext);
     const [total, setTotal] = useState(0);
-    const totalProduct = state.filter((e) => { return e.name === name })
+    const totalProduct = state.products.filter((e) => { return e.name === name })
 
     useEffect(() => {
         setTotal(totalProduct.length * items[0].price)
     }, [])
-
 
     const handleClick = (e) => {
         dispatch({
@@ -38,9 +37,9 @@ function Product({ name, items, store }) {
                     <div className="badge-number">{totalProduct.length}</div>
                     <div className="less" onClick={handleClick}>-</div>
                 </div>
-                <button onClick={deleteAll}>
-                    <MdDelete size={20} />
-                </button>
+                <div className="delete-btn" onClick={deleteAll}>
+                    <MdDelete className="delete-btn" size={20} />
+                </div>
                 <div className="total-price-store">${total}</div>
             </div>
         </div>
