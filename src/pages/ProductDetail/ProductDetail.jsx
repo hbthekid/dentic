@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
+import { CartContext } from '../../context/CartContext'
 import './ProductDetail.css'
 import Navbar from '../../components/Navbar/Navbar'
-function ProductDetail() {
+
+function ProductDetail({ location: { state } }) {
+    const { dispatch } = useContext(CartContext);
+    useEffect(() => {
+        console.log(state)
+    })
+    const handleClick = () => {
+        dispatch({
+            type: "ADD_CART",
+            value: 'ooooooo',
+        })
+    }
     return (
         <>
             <Navbar />
@@ -13,25 +25,24 @@ function ProductDetail() {
                     <div className="product-details">
                         <div className="product-details-top">
                             <div className="details-top">
-                                <h1 className="title-item">Baltica Dry</h1>
-                                <div className="badge-store">Hasta Pronto</div>
+                                <h1 className="title-item">{state.name}</h1>
+                                <div className="badge-store">{state.store}</div>
                             </div>
                             <div className="details-bottom">
-                                <p className="details-display">6 pack</p>
+                                <p className="details-display">{state['units-in-pack']}</p>
                                 <div className="details-price-container">
-                                    <h4 className="details-price">Precio:</h4><h2 className="details-price">         $1500</h2>
+                                    <h4 className="details-price">${state.price}</h4>
                                 </div>
                             </div>
                         </div>
                         <div className="product-details-bottom">
-                            <button className="button-add">Agregar al carro</button>
+                            <button className="button-add" onClick={handleClick}>Agregar al carro</button>
                         </div>
                     </div>
                 </div>
                 <div className="product-description">
-                    <div className="description-title"><h1>Descripción</h1></div>
-                    <div className="description-content"><p>
-                        Hazy IPA de 6,5% ABV con lúpulos rotativos. Para esta versión se usaron los lúpulos Motueka (Nueva Zelanda) y Simcoe (USA), que le otorgan notas cítricas, naranja confitada y un fondo de durazno conservero. Es una cerveza jugosa de dulzor residual bajo, lo que le da un amargor redondo y asertivo. Esta modalidad de lúpulo rotativo, nos da la oportunidad de jugar con aromas bajo la misma receta de una cerveza. Así ustedes, nuestros queridos clientes, pueden probar e identificar sus lúpulos favoritos. 6 Pack 6,5% ABV 355 ml</p></div>
+                    <div className="description-title">Descripción</div>
+                    <div className="description-content"><p>{state.description}</p></div>
                 </div>
             </main>
         </>

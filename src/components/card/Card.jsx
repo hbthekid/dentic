@@ -7,7 +7,10 @@ function Card({ item }) {
     const history = useHistory();
 
     const handleClick = () => {
-        history.push(`/product/id`);
+        history.push({
+            pathname:`/product/${item.name}`,
+            state: item
+        });
     };
 
     return (

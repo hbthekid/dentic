@@ -39,7 +39,7 @@
 }
 
 .badge-store{
-    background-color: teal;
+    background-color: #17C0F4;
     border-radius: 50px;
     color:white;
     display: inline-block;
@@ -62,6 +62,8 @@
 
 .details-price{
     display: inline;
+    font-size: 30px;
+    font-weight:600;
 }
 
 .details-price-container{
@@ -69,7 +71,7 @@
 }
 
 .button-add{
-    background-color: teal;
+    background-color: #CB463A;
     border-radius: 50px;
     color:white;
     cursor: pointer;
@@ -82,10 +84,15 @@
     min-width: 50%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 300;
 }
 
 .description-content{
     min-width: 50%;
+    color: #555555;
+    font-weight: 300;
 
 }
 .title-item{
