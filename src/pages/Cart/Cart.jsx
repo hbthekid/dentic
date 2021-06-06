@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import { MdDelete } from 'react-icons/md'
+import { CartContext } from '../../context/CartContext'
 import './Cart.css'
 
 function Cart() {
+    const { state, dispatch } = useContext(CartContext);
+    const handleClick = (e) => {
+        console.log(e)
+        dispatch({
+            type:'DELETE_ITEM',
+            value: '«Microdosis» Cerveza lúpulada'
+        })
+    }
     return (
         <div>
             <Navbar />
@@ -20,15 +29,15 @@ function Cart() {
                                         <div className="quantity-container">
                                             <div className="plus">+</div>
                                             <div className="badge-number">4</div>
-                                            <div className="less">-</div>
+                                            <div className="less" onClick={handleClick}>-</div>
                                         </div>
                                         <MdDelete size={20} />
                                         <div className="total-price-store">$45.000</div>
                                     </div>
                                 ))
                             }
-                        </div>   
-                        <h4 className="final-store">Total en esta tienda : $45.000</h4>                     
+                        </div>
+                        <h4 className="final-store">Total en esta tienda : $45.000</h4>
                     </div>
 
                 ))}

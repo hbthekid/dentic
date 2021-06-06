@@ -11,7 +11,15 @@ const reducer = (state, action) => {
                 return [...state, action.value];
             }
         case "DELETE_ITEM": {
-            return []
+            const index = state.findIndex(e => e.name === action.value)
+            if(index > -1){
+                state.splice(index, 1)
+                return [...state]                
+            }else{
+                return [...state]
+            }
+
+
         }
         default:
             return state;

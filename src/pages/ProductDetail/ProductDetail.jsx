@@ -11,7 +11,11 @@ function ProductDetail({ location: { state } }) {
     const handleClick = () => {
         dispatch({
             type: "ADD_CART",
-            value: 'ooooooo',
+            value: {
+                name:state.name,
+                store:state.store,
+                price:state.price
+            },
         })
     }
     return (
