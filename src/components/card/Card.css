@@ -6,6 +6,12 @@
     position: relative;
     display: inline-block;
     margin: 20px;
+    transition: transform 0.5s;
+    
+}
+.card:hover{
+    opacity: 0.5;
+    transform: scale(1.1);
 }
 
 .card-image {
@@ -46,5 +52,10 @@
     top: 0;
     right: 0;
     background-color: #CB463A;
-    border-bottom-left-radius: 25px;
+    border-radius: 50px;
+}
+
+.card-add:hover{
+    background-color: red;
+    cursor: pointer;
 }

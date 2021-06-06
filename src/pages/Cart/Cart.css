@@ -45,7 +45,7 @@
     border-radius: 100%;
     color:white;
     display: inline-block;
-    padding: 1px 8px;
+    padding: 5px 10px;
     cursor: pointer;
     margin-right: 5px;
 }
@@ -54,7 +54,7 @@
     border-radius: 100%;
     color:white;
     display: inline-block;
-    padding: 1px 8px;
+    padding: 5px 10px;
     cursor: pointer;
     margin-left: 10px;
 }
@@ -72,8 +72,16 @@
 }
 .pay-button{
     background-color: teal;
-    border-radius: 50px;
+    border-radius: 40px;
     color:white;
     display: inline-block;
     padding: 10px 80px;
+}
+.actions-container{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+.name{
+    width: 100%;
 }

@@ -11,3 +11,36 @@
     width: 140px;
     height: 120px;
 }
+
+.linksRouter{
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.cart-nav-icon{
+    position: relative;
+}
+
+.cart-nav-icon:hover{
+    color:#d0d0d0
+}
+
+.badge-nav-icon{
+    margin-top: 0;
+    position: absolute;
+    top:0;
+    right:0;
+}
+
+.icon{
+    padding:10px
+}
+
+.link{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.link:hover{
+    color:#d0d0d0
+}

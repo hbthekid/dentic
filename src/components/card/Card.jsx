@@ -8,7 +8,7 @@ function Card({ item }) {
 
     const handleClick = () => {
         history.push({
-            pathname:`/product/${item.name}`,
+            pathname:`/product/${item.id}`,
             state: item
         });
     };
@@ -19,7 +19,7 @@ function Card({ item }) {
                 <MdLocalGroceryStore size={20} color="white" />
             </div>
             <div className="card-header">
-                <img className="card-image" src="https://s3-sa-east-1.amazonaws.com/buze-backoffice-product-images/1b3f784c-6541-4806-972e-de6ee7c8293d-lg.jpg" />
+                <img className="card-image" src={item.image} />
             </div>
             <div className="card-content">
                 <h2 className="card-content-title">{item.name}</h2>

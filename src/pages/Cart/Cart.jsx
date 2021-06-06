@@ -1,49 +1,26 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
-import { MdDelete } from 'react-icons/md'
+import Store from '../../components/Cart/Store'
+import _ from 'underscore'
 import { CartContext } from '../../context/CartContext'
 import './Cart.css'
 
 function Cart() {
-    const { state, dispatch } = useContext(CartContext);
-    const handleClick = (e) => {
-        console.log(e)
-        dispatch({
-            type:'DELETE_ITEM',
-            value: '«Microdosis» Cerveza lúpulada'
-        })
-    }
+    const { state, dispatch } = useContext(CartContext)
+    const group = _.groupBy(state, (e) => e.store)
+    const stores = Object.keys(group)
+
     return (
         <div>
             <Navbar />
             <section className="container">
                 <h1 className="title-cart">Tu Carrito</h1>
-                {[0, 1].map(() => (
-                    <div>
-                        <div className="store-container">
-                            <div className="badge-store-cart">El Curao Lapio</div>
-                            {
-                                [0, 2].map(() => (
-                                    <div className="product">
-                                        <h4>Baltica Dry</h4>
-                                        <div className="quantity-container">
-                                            <div className="plus">+</div>
-                                            <div className="badge-number">4</div>
-                                            <div className="less" onClick={handleClick}>-</div>
-                                        </div>
-                                        <MdDelete size={20} />
-                                        <div className="total-price-store">$45.000</div>
-                                    </div>
-                                ))
-                            }
-                        </div>
-                        <h4 className="final-store">Total en esta tienda : $45.000</h4>
-                    </div>
-
+                {stores.map((e) => (
+                    <Store store={e} items={group[e]} />
                 ))}
                 <div className="cart-footer">
                     <h1>Total a Pagar</h1>
-                    <h1>$67.900</h1>
+                    <h1>$9999</h1>
                     <div className="pay-button">Pagar</div>
                 </div>
             </section>

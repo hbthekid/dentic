@@ -3,10 +3,11 @@ import ListCard from '../components/ListCard/ListCard'
 import Navbar from '../components/Navbar/Navbar'
 
 const Home = () => {
-    const [beers, setBeers] = useState([]);
+    const [beers, setBeers] = useState([])
     useEffect(async () => {
-        const data = await fetch('https://60b9129080400f00177b619f.mockapi.io/api/v1/products');
-        setBeers(Object.values(await data.json()))            
+        const res = await fetch('/products')
+        const { data } = await res.json()
+        setBeers(data)
     }, [])
 
     return (

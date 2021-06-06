@@ -6,15 +6,15 @@ import Navbar from '../../components/Navbar/Navbar'
 function ProductDetail({ location: { state } }) {
     const { dispatch } = useContext(CartContext);
     useEffect(() => {
-        console.log(state)
     })
     const handleClick = () => {
         dispatch({
             type: "ADD_CART",
             value: {
-                name:state.name,
-                store:state.store,
-                price:state.price
+                name: state.name,
+                store: state.store,
+                price: state.price,
+                id: state.id
             },
         })
     }
@@ -24,7 +24,7 @@ function ProductDetail({ location: { state } }) {
             <main className="main">
                 <div className="content">
                     <div className="image">
-                        <img className="imagen" src="https://s3-sa-east-1.amazonaws.com/buze-backoffice-product-images/1b3f784c-6541-4806-972e-de6ee7c8293d-lg.jpg" />
+                        <img className="imagen" src={state.image} />
                     </div>
                     <div className="product-details">
                         <div className="product-details-top">
