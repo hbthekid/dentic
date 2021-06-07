@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar/Navbar'
 const Home = () => {
     const [beers, setBeers] = useState([])
     useEffect(async () => {
-        const res = await fetch('/products')
+        const res = await fetch('https://dentic-api.herokuapp.com/products')
         const { data } = await res.json()
         setBeers(data)
     }, [])
