@@ -14,13 +14,11 @@ const reducer = (state, action) => {
         }
         case "DELETE_ITEM": {
             let idx = state.products.findIndex(p => p.name === action.value.name);
-            return { total: state.total - action.value.price, products: state.products.splice(idx, 0) }
+            return { total: state.total - action.value.price, products: state.products.splice(idx, 1) }
         }
         case "DELETE_ALL": {
             return { total: state.total - (action.value.price * action.value.number), products: state.products.filter((e) => e.name !== action.value.name) }
         }
-        default:
-            return state;
     }
 };
 

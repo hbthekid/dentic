@@ -4,9 +4,9 @@ import '../../pages/Cart/Cart'
 import { CartContext } from '../../context/CartContext'
 
 function Product({ name, items, store }) {
-    const { state, dispatch } = useContext(CartContext);
+    const { state: { products }, dispatch } = useContext(CartContext);
     const [total, setTotal] = useState(0);
-    const totalProduct = state.products.filter((e) => { return e.name === name })
+    const totalProduct = products.filter((e) => { return e.name === name })
 
     useEffect(() => {
         setTotal(totalProduct.length * items[0].price)
@@ -33,6 +33,7 @@ function Product({ name, items, store }) {
         })
     }
     const deleteAll = () => {
+        console.log(items.length)
         dispatch({
             type: 'DELETE_ALL',
             value: {
