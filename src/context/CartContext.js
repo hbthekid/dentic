@@ -3,6 +3,7 @@ import React, { createContext, useReducer } from "react";
 export const CartContext = createContext();
 const initialCartState = {
     total: 0,
+    totalByStore:{},
     products: []
 };
 
@@ -13,10 +14,10 @@ const reducer = (state, action) => {
         }
         case "DELETE_ITEM": {
             let idx = state.products.findIndex(p => p.name === action.value.name);
-            return { total: state.total - action.value.price, products: state.products.splice(idx, 1) }
+            return { total: state.total - action.value.price, products: state.products.splice(idx, 0) }
         }
         case "DELETE_ALL": {
-            return { total: state.total, products: state.products.filter((e) => e.name !== action.value.name) }
+            return { total: state.total - (action.value.price * action.value.number), products: state.products.filter((e) => e.name !== action.value.name) }
         }
         default:
             return state;

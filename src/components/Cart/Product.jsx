@@ -17,7 +17,7 @@ function Product({ name, items, store }) {
             type: 'DELETE_ITEM',
             value: {
                 name: name,
-                price:items[0].price
+                price: items[0].price
             }
         })
     }
@@ -37,6 +37,8 @@ function Product({ name, items, store }) {
             type: 'DELETE_ALL',
             value: {
                 name: name,
+                price: items[0].price,
+                number: items.length
             }
         })
     }
